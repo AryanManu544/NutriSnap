@@ -25,13 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
         fileInput.click();
     });
 
-    if (uploadContent) {
-        uploadContent.addEventListener('click', function(e) {
-            console.log("Upload content clicked");
-            fileInput.click();
-        });
-    }
-
     fileInput.addEventListener('change', function(e) {
         console.log("File selected");
         if (e.target.files.length > 0) {

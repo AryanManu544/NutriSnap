@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Floating food icons -->
     <div class="floating-food" style="left: 10%; animation-delay: 0s;">🍛</div>
     <div class="floating-food" style="left: 20%; animation-delay: 3s;">🥘</div>
     <div class="floating-food" style="left: 30%; animation-delay: 6s;">🍚</div>
@@ -31,7 +30,6 @@
         </header>
   
         <div class="main-content">
-            <!-- Upload Section -->
             <div class="card">
                 <h2>📷 Upload Food Image</h2>
                 <div class="upload-area" id="uploadArea">
@@ -48,7 +46,6 @@
                 <div id="errorMessage"></div>
             </div>
 
-            <!-- Results Section -->
             <div class="card">
                 <h2>📊 Prediction Results</h2>
                 <div id="results" class="results">
@@ -61,7 +58,6 @@
             </div>
         </div>
 
-        <!-- Supported Foods -->
         <div class="food-classes">
             <h2>🥘 Supported Indian Delicacies</h2>
             <div class="food-grid">
@@ -82,60 +78,6 @@
         </div>
     </div>
 
-    <script>
-        // Basic functionality for the upload area
-        const uploadArea = document.getElementById('uploadArea');
-        const fileInput = document.getElementById('fileInput');
-        const predictBtn = document.getElementById('predictBtn');
-
-        uploadArea.addEventListener('click', () => {
-            fileInput.click();
-        });
-
-        uploadArea.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            uploadArea.classList.add('dragover');
-        });
-
-        uploadArea.addEventListener('dragleave', () => {
-            uploadArea.classList.remove('dragover');
-        });
-
-        uploadArea.addEventListener('drop', (e) => {
-            e.preventDefault();
-            uploadArea.classList.remove('dragover');
-            const files = e.dataTransfer.files;
-            if (files.length > 0) {
-                handleFile(files[0]);
-            }
-        });
-
-        fileInput.addEventListener('change', (e) => {
-            if (e.target.files.length > 0) {
-                handleFile(e.target.files[0]);
-            }
-        });
-
-        function handleFile(file) {
-            if (file && file.type.startsWith('image/')) {
-                predictBtn.disabled = false;
-                document.getElementById('uploadContent').innerHTML = `
-                    <div class="upload-icon">✅</div>
-                    <div class="upload-text">Image uploaded successfully!</div>
-                    <div class="upload-hint">${file.name}</div>
-                `;
-            }
-        }
-
-        // Add some interactive effects
-        document.querySelectorAll('.food-item').forEach(item => {
-            item.addEventListener('click', () => {
-                item.style.animation = 'pulse 0.6s ease-in-out';
-                setTimeout(() => {
-                    item.style.animation = '';
-                }, 600);
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

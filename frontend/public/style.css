@@ -233,26 +233,6 @@ h1 {
     background: #a0aec0;
 }
 
-.empty-state {
-    text-align: center;
-    color: #718096;
-    padding: 50px 20px;
-}
-
-.empty-state h3 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-    color: #4a5568;
-}
-
-.empty-state::before {
-    content: '🍽️';
-    display: block;
-    font-size: 4rem;
-    margin-bottom: 20px;
-    opacity: 0.5;
-}
-
 .food-classes {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -337,7 +317,6 @@ h1 {
     color: #2d3748;
 }
 
-/* Floating food icons */
 .floating-food {
     position: fixed;
     font-size: 2rem;
@@ -364,7 +343,157 @@ h1 {
     }
 }
 
-/* Responsive Design */
+.results {
+    display: none;
+}
+
+.results.show {
+    display: block;
+}
+
+.prediction {
+    background: #f8f9fa;
+    border-left: 4px solid #667eea;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.prediction:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+.prediction.top {
+    border-left-color: #28a745;
+    background: linear-gradient(135deg, #d4edda, #c3e6cb);
+}
+
+.prediction-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.rank-title {
+    display: flex;
+    align-items: center;
+}
+
+.rank {
+    background: #6c757d;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.rank.top {
+    background: #ffc107;
+    color: #333;
+}
+
+.food-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.confidence {
+    background: #667eea;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.confidence.top {
+    background: #28a745;
+}
+
+.nutrition {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.nutrition-item {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #e9ecef;
+}
+
+.nutrition-label {
+    font-size: 0.8rem;
+    color: #666;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.nutrition-value {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.nutrition-level {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.level-high {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.level-medium {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.level-low {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+.error {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    border-left: 4px solid #dc3545;
+}
+
+.empty-state {
+    text-align: center;
+    color: #666;
+    padding: 40px 20px;
+}
+
+.empty-state::before {
+    content: '🍽️';
+    display: block;
+    font-size: 4rem;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
 @media (max-width: 768px) {
     .main-content {
         grid-template-columns: 1fr;
@@ -396,28 +525,14 @@ h1 {
     .header-decoration {
         display: none;
     }
-}
 
-/* Results styling (if needed) */
-.results {
-    display: none;
-}
+    .prediction-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
 
-.results.show {
-    display: block;
-}
-
-.prediction {
-    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-    border-left: 4px solid #ff6b6b;
-    border-radius: 15px;
-    padding: 25px;
-    margin-bottom: 20px;
-    transition: all 0.3s ease;
-}
-
-.prediction:hover {
-    background: linear-gradient(135deg, #e9ecef, #dee2e6);
-    transform: translateX(8px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    .nutrition {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }

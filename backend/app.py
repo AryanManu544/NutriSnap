@@ -6,26 +6,19 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from PIL import Image
 import io
-import h5py # Ensure h5py is installed (pip install h5py)
+import h5py 
 
-# Import necessary Keras components to build the model
 from tensorflow.keras import layers, models
 from tensorflow.keras.applications import Xception
 
 app = Flask(__name__)
 CORS(app)
 
-# --- Image dimensions ---
 IMG_HEIGHT = 224
 IMG_WIDTH = 224
 NUM_CLASSES = 15
 
-# --- Food classes (exactly as trained in Colab) ---
 FOOD_CLASSES = ['biryani', 'chole-bhature', 'chole_bhature', 'dabeli', 'dal', 'dhokla', 'dosa', 'jalebi', 'kofta', 'naan', 'paneer-tikka', 'pani-puri', 'pav-bhaji', 'vada_pav', 'vadapav']
-
-# ==============================================================================
-# FINAL FIX: BUILD THE MODEL AND LOAD ONLY THE WEIGHTS
-# ==============================================================================
 
 def create_xception_model(num_classes):
     """Recreates the exact model structure from your training notebook."""
@@ -34,9 +27,8 @@ def create_xception_model(num_classes):
         include_top=False,
         input_shape=(IMG_HEIGHT, IMG_WIDTH, 3)
     )
-    # This fine-tuning setup should match your notebook
     base_model.trainable = True
-    for layer in base_model.layers[:-20]: # Freeze all but the last 20 layers
+    for layer in base_model.layers[:-20]:
         layer.trainable = False
         
     model = models.Sequential([
@@ -54,8 +46,6 @@ def create_xception_model(num_classes):
     ])
     return model
 
-# --- Load trained model WEIGHTS ---
-# Update this to the name of your .h5 file
 MODEL_WEIGHTS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "xception_final.h5")
 
 print("--- Building model structure... ---")
@@ -68,11 +58,6 @@ print("✅ Model and weights loaded successfully")
 print("🔹 Model input shape:", model.input_shape)
 print("🔹 Model output shape:", model.output_shape)
 
-# ==============================================================================
-# (The rest of your code is correct and remains the same)
-# ==============================================================================
-
-# --- Preprocess image ---
 def preprocess_image(image_array):
     if image_array.shape[-1] != 3:
         raise ValueError(f"Image must have 3 channels, got {image_array.shape[-1]}")
@@ -80,7 +65,6 @@ def preprocess_image(image_array):
     image_expanded = np.expand_dims(image_resized, axis=0)
     return tf.keras.applications.xception.preprocess_input(image_expanded.copy())
 
-# --- Predict function ---
 def predict_food_with_nutrition(image_array, top_k=3):
     nutrition_db = {
         'biryani': {'calories': 290, 'protein': 'medium', 'carbs': 'high', 'fat': 'medium', 'fiber': 'low'},
@@ -112,7 +96,6 @@ def predict_food_with_nutrition(image_array, top_k=3):
         })
     return results
 
-# --- Flask route ---
 @app.route("/predict", methods=["POST"])
 def predict():
     if 'file' not in request.files:
