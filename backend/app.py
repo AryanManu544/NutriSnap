@@ -13,7 +13,7 @@ from tensorflow.keras.applications import Xception
 
 app = Flask(__name__)
 CORS(app, origins=[
-    "https://nutrisnap-frontend.vercel.app", 
+    "https://nutrisnap-zeta.vercel.app", 
     "http://localhost:3000"    
 ])
 
