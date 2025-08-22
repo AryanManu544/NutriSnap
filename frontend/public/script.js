@@ -1,7 +1,10 @@
 let selectedFile = null;
 let isLoading = false;
 
-const API_URL = 'http://localhost:9213/predict';
+const PRODUCTION_API_URL = 'https://nutrisnap-k4cs.onrender.com/predict';
+const LOCAL_API_URL = 'http://localhost:9213/predict';
+const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+const API_URL = isLocal ? LOCAL_API_URL : PRODUCTION_API_URL;
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log("DOM loaded");

@@ -12,7 +12,10 @@ from tensorflow.keras import layers, models
 from tensorflow.keras.applications import Xception
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=[
+    "https://nutrisnap-frontend.vercel.app", 
+    "http://localhost:3000"    
+])
 
 IMG_HEIGHT = 224
 IMG_WIDTH = 224
