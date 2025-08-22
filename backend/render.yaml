@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: nutrisnap-backend
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    env:
+      - key: PORT
+        value: 10000
