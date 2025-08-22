@@ -96,6 +96,10 @@ def predict_food_with_nutrition(image_array, top_k=3):
         })
     return results
 
+@app.route("/", methods=["GET"])
+def health_check():
+    return jsonify({"status": "healthy", "message": "NutriSnap API is running"})
+
 @app.route("/predict", methods=["POST"])
 def predict():
     if 'file' not in request.files:
@@ -114,4 +118,5 @@ def predict():
         return jsonify({"error": f"An error occurred: {str(e)}"}), 500
     
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=9213, debug=True)
+    port = int(os.environ.get('PORT', 10000))
+    app.run(host="0.0.0.0", port=port, debug=False)
