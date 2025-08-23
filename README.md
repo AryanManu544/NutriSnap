@@ -1,9 +1,13 @@
-🍲 NutriSnap
+# 🍲 NutriSnap
 
-A full-stack web application for classifying food images using deep learning.
-Frontend built with React, backend powered by Flask + TensorFlow, and containerized with Docker.
+NutriSnap is a full-stack web application for classifying food images using deep learning.  
+The frontend is built with **React**, the backend uses **Flask** + **TensorFlow**, and the project is **containerized with Docker**.
 
-📂 Project Structure
+---
+
+## 📁 Project Structure
+
+```bash
 Food_Classification/
 ├── backend/                  # Flask API server
 │   ├── app.py                # Main backend application
@@ -35,90 +39,21 @@ Food_Classification/
 │   ├── package-lock.json
 │   ├── .env
 │   └── .gitignore
-│
-├── .gitattributes
-└── README.md                 # Main documentation
+```
 
+🚀 Features
+Upload food images and get real-time classification.
+Uses Xception-based CNN model for accurate predictions.
+Responsive React frontend with modern UI.
+Dockerized for easy deployment.
 
-⚙️ Technology Stack
+🛠️ Tech Stack
+Frontend: React, HTML, CSS, JavaScript
+Backend: Flask, Python, TensorFlow, Pillow
+Database: Optional (can integrate if needed)
+Containerization: Docker
 
-Frontend
-
-React.js
-
-CSS / Custom styling
-
-Create React App (CRA)
-
-Backend
-
-Python 3 + Flask
-
-TensorFlow / Keras
-
-REST API (JSON)
-
-Docker support
-
-✨ Key Features
-
-🍽️ Classify food images using a deep learning model
-
-🌐 User-friendly web interface for uploads
-
-⚡ Real-time predictions via Flask API
-
-🐳 Dockerized backend for easy deployment
-
-🔑 Environment variable support
-
-🚀 Getting Started
-Prerequisites
-
-Node.js (v14+)
-
-Python (3.8+)
-
-pip
-
-Docker (optional)
-
-Installation
-
-1️⃣ Clone the repository
-
-git clone <repository-url>
-cd Food_Classification
-
-
-2️⃣ Backend Setup
-
-cd backend
-pip install -r requirements.txt
-python app.py
-
-
-3️⃣ Frontend Setup
-
-cd frontend
-npm install
-npm start
-
-
-4️⃣ Access Application
-
-Frontend → http://localhost:3000
-
-Backend API → http://localhost:5000
-
-🤝 Contributing
-
-Fork the repository
-
-Create a feature branch
-
-Commit your changes
-
-Push to your branch
-
-Open a Pull Request
+📦 Usage
+Open the frontend(https://nutrisnap-zeta.vercel.app) in your browser .
+Upload an image of food.
+Get instant classification results.
