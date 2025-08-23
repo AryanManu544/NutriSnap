@@ -40,20 +40,33 @@ Food_Classification/
 │   ├── .env
 │   └── .gitignore
 ```
+## 🚀 Features
 
-🚀 Features
-Upload food images and get real-time classification.
-Uses Xception-based CNN model for accurate predictions.
-Responsive React frontend with modern UI.
-Dockerized for easy deployment.
+* 📸 **Real-Time Food Classification:** Upload food images and get instant identification.
+* 🧠 **Accurate Predictions:** Powered by an Xception-based Convolutional Neural Network (CNN) model.
+* 💻 **Modern UI:** A clean, responsive, and user-friendly interface built with React.
+* 🐳 **Easy Deployment:** Fully containerized with Docker for simple and consistent setup.
 
-🛠️ Tech Stack
-Frontend: React, HTML, CSS, JavaScript
-Backend: Flask, Python, TensorFlow, Pillow
-Database: Optional (can integrate if needed)
-Containerization: Docker
+---
 
-📦 Usage
-Open the frontend(https://nutrisnap-zeta.vercel.app) in your browser .
-Upload an image of food.
-Get instant classification results.
+## 🛠️ Tech Stack
+
+* **Frontend:**
+    * React
+    * HTML/CSS
+    * JavaScript
+* **Backend:**
+    * Flask (Python)
+    * TensorFlow
+    * Pillow
+* **Database:**
+    * Flexible (can be integrated as needed)
+* **Containerization:**
+    * Docker
+
+---
+
+## 📦 Usage
+1.  Navigate to the [**NutriSnap web app**](https://nutrisnap-zeta.vercel.app).
+2.  Click the upload area and select an image of a food item from your device.
+3.  View the instant classification result provided by the model.
